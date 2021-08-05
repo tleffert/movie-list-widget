@@ -1,0 +1,33 @@
+/**
+ * Vendor styles go here
+ **/
+
+ @import '~bootstrap/dist/css/bootstrap.css'; 
+
+/**
+ * Global styles go here
+ **/
+
+
+ @font-face {
+    font-family: Futura PT;
+    src: url('../src/assets/fonts/FuturaPT/FuturaPTBold.otf')
+}
+body {
+    background: #E5E5E5;
+    background-image: url("../src/assets/Hero.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    font-family: Futura PT;
+}
+
+.btn {
+    border: 1px solid #090909;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.no-gutter {
+    margin-left: -15px;
+    margin-right: -15px;
+}

@@ -1,0 +1,17 @@
+@import '../../../../variables.scss';
+
+.cinema-option {
+    background-color: white;
+
+    align-items: center;
+    text-align: center;
+
+    &.selected {
+        background-color: $movie-gold;
+        border-color: $movie-gold;
+    }
+
+    &:hover {
+        background-color: $movie-gold;
+    }
+}

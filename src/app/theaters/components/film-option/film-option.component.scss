@@ -1,0 +1,33 @@
+@import '../../../../variables.scss';
+
+.film-option {
+    border: 1px solid $letter-box-black;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: white;
+
+    font-family: Futura PT;
+    font-size: 22px;
+    line-height: 28px;
+    /* or 127% */
+
+    align-items: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    &:hover {
+        background: $letter-box-black;
+        color: $movie-gold;
+    }
+
+    &:hover > .cart {
+        background-image: url('../../../../assets/gold-cart.png');
+    }
+}
+
+.cart {
+    background-image: url('../../../../assets/cart.png');
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+}
