@@ -26,8 +26,8 @@ export class TheaterSelectList implements angular.IComponentOptions {
     };
     static controller = TheaterSelectListController;
     static template = `
-        <div class="flex-row flex-wrap d-none d-md-flex no-gutter">
-            <div class="cinema-list col-4 my-2" ng-repeat="cinema in $ctrl.cinemas">
+        <div class="d-flex flex-row flex-wrap no-gutter">
+            <div class="cinema-list col-sm-6 col-md-4 my-2" ng-repeat="cinema in $ctrl.cinemas">
                 <theater-option
                     cinema="cinema"
                     selected="$ctrl._selectedCinema.id === cinema.id"

@@ -1,4 +1,7 @@
 @import '../../../../variables.scss';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
 
 .film-list-widget {
     width: 752px;
@@ -11,6 +14,32 @@
     background: #FFFFFF;
     box-shadow: 0px 2px 4px rgba(24, 17, 3, 0.14), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(24, 17, 3, 0.2);
     border-radius: 4px;
+}
+
+@include media-breakpoint-down(sm) {
+    .film-list-widget {
+       width: 100%;
+       top: 20vh;
+       box-shadow: none;
+       border-radius: 0;
+       padding-left: 64px;
+       padding-right: 64px;
+       background-color: $silver-screen-gray
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .film-list-widget {
+       top: 15vh;
+       padding-left: 32px;
+       padding-right: 32px;
+    }
+}
+
+.widget-hero {
+    background-image: url('../../../../assets/Hero.png');
+    background-repeat: no-repeat;
+    width: auto;
 }
 
 
