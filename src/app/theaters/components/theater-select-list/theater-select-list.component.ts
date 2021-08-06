@@ -2,13 +2,13 @@ import angular = require('angular');
 import { Cinema, Market } from '../../models';
 
 class TheaterSelectListController {
-    _selectedCinema: Cinema;
+    selectedCinema: Cinema;
     cinemas: Array<Cinema>;
-    selectedCinema: ($event: { selected: Cinema}) => void;
+    selectHandler: ($event: { selected: Cinema}) => void;
 
     setSelected(selected: Cinema) {
-        this._selectedCinema = selected;
-        this.selectedCinema({selected: selected});
+        this.selectedCinema = selected;
+        this.selectHandler({selected: selected});
     }
 
     $onInit() {
@@ -22,7 +22,8 @@ export class TheaterSelectList implements angular.IComponentOptions {
     static slector = 'theaterSelectList';
     static bindings = {
         cinemas: '<',
-        selectedCinema: '&'
+        selectedCinema: '<',
+        selectHandler: '&'
     };
     static controller = TheaterSelectListController;
     static template = `
@@ -30,7 +31,7 @@ export class TheaterSelectList implements angular.IComponentOptions {
             <div class="cinema-list col-sm-6 col-md-4 my-2" ng-repeat="cinema in $ctrl.cinemas">
                 <theater-option
                     cinema="cinema"
-                    selected="$ctrl._selectedCinema.id === cinema.id"
+                    selected="$ctrl.selectedCinema.id === cinema.id"
                     ng-click="$ctrl.setSelected(cinema)"
                 ></theater-option>
             </div>

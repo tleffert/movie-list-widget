@@ -24,8 +24,10 @@ class SelectionController {
 
         // watching for changes on the selected theater, so we can produce correct film list
        $scope.$watch(() => this.theaterService.selectedTheater, (val) => {
+           if (val) {
             this.selectedTheaterFilms = this.moviesService.getUniqueFilmsForCinema(val.id);
             this.toggleCollapse();
+           }
         });
    }
 

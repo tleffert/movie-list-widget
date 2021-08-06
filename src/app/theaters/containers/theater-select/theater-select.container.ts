@@ -18,6 +18,10 @@ class TheaterSelectController {
    handleSelected(selected: Cinema) {
        this.theaterService.selectedTheater = selected;
    }
+
+   get selectedCinema() {
+       return this.theaterService.selectedTheater;
+   }
 }
 
 export class TheaterSelectContainer implements angular.IComponentOptions {
@@ -30,7 +34,8 @@ export class TheaterSelectContainer implements angular.IComponentOptions {
         <div>
             <theater-select-list
                 cinemas="$ctrl.cinemas"
-                selected-cinema="$ctrl.handleSelected(selected)"
+                selected-cinema="$ctrl.selectedCinema"
+                select-handler="$ctrl.handleSelected(selected)"
             ></theater-select-list>
         </div>
     `;
