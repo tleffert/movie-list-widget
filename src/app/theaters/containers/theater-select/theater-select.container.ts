@@ -15,12 +15,6 @@ class TheaterSelectController {
        'ngInject';
    }
 
-   $onInit() {
-       this.moviesService.getCinemas().then((data) => {
-           this.cinemas = data as Cinema[];
-       });
-   }
-
    handleSelected(selected: Cinema) {
        this.theaterService.selectedTheater = selected;
    }
@@ -29,6 +23,9 @@ class TheaterSelectController {
 export class TheaterSelectContainer implements angular.IComponentOptions {
     static selector = 'theaterSelect';
     static controller = TheaterSelectController;
+    static bindings = {
+        cinemas: '<'
+    };
     static template = `
         <div>
             <theater-select-list

@@ -1,3 +1,4 @@
+import angular = require('angular');
 import { MoviesService } from '../../services/movies.api';
 import { TheaterService } from '../../services/theater.service';
 
@@ -10,6 +11,7 @@ interface ISelectionScope extends ng.IScope {
 class SelectionController {
 
     _selectedTheaterFilms: Array<any>;
+    cinemas: Array<any>;
 
    constructor(
        private theaterService: TheaterService,
@@ -17,11 +19,10 @@ class SelectionController {
        private $scope: ISelectionScope
     ) {
        'ngInject';
-        this.moviesService.initData();
+
+        // watching for changes on the selected theater, so we can produce correct film list
        $scope.$watch(() => this.theaterService.selectedTheater, (val) => {
-            this.moviesService.getSessionsForCinema(val.id).then(data => console.log('sessions', data));
             this.selectedTheaterFilms = this.moviesService.getUniqueFilmsForCinema(val.id);
-            console.log(this.selectedTheaterFilms);
         });
    }
 
@@ -42,12 +43,15 @@ class SelectionController {
 export class SelectionContainer implements angular.IComponentOptions {
     static selector = 'selection';
     static controller = SelectionController;
+    static bindings = {
+        cinemas: '<'
+    };
     static template = `
         <div class="film-list-widget d-flex flex-column pt-1 mx-auto">
             <h2 class="mx-auto text-uppercase widget-title ">Find a Movie</h2>
             <div class="theater-select">
                 <h3 class="section-label text-uppercase">Select Theater</h3>
-                <theater-select></theater-select>
+                <theater-select cinemas="$ctrl.cinemas"></theater-select>
             </div>
             <div class="my-4">
                 <h3 class="section-label text-uppercase">Films playing at <strong>{{$ctrl.selectedTheater.name}}</strong></h3>

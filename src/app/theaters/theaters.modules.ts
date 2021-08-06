@@ -26,5 +26,6 @@ export const moduleName =
 
     .service(MoviesService.selector, MoviesService)
     .service(TheaterService.selector, TheaterService)
+
     .config(routing)
     .name;

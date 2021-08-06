@@ -12,7 +12,6 @@ class TheaterSelectListController {
     }
 
     $onInit() {
-        console.log('HELlo', this.cinemas);
         // just giving an initially selected venue
         this.setSelected(this.cinemas[0]);
     }

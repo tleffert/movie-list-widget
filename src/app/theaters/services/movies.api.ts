@@ -17,9 +17,8 @@ export class MoviesService {
     }
 
     initData() {
-        this.$http.get<any>('https://drafthouse.com/s/mother/v1/page/market/main/austin')
+        return this.$http.get<any>('https://drafthouse.com/s/mother/v1/page/market/main/austin')
             .then(({data}) => {
-                console.log('here is this data', data);
                 this.data = data.data;
             });
     }
