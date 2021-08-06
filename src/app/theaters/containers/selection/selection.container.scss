@@ -15,6 +15,12 @@
     border-radius: 4px;
 }
 
+@include media-breakpoint-down(md) {
+    .film-list-widget {
+       top: 20vh;
+    }
+}
+
 @include media-breakpoint-down(sm) {
     .film-list-widget {
         position: absolute;
