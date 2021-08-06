@@ -16,6 +16,10 @@ export class MoviesService {
         'ngInject';
     }
 
+    /**
+     *
+     * Fetches inital dataload for the example market
+     */
     initData() {
         return this.$http.get<any>('https://drafthouse.com/s/mother/v1/page/market/main/austin')
             .then(({data}) => {
@@ -24,23 +28,26 @@ export class MoviesService {
     }
 
     getCinemas() {
-        return this.$http.get<any>('https://drafthouse.com/s/mother/v1/page/market/main/austin')
-            .then(({data}) => {
-               return data.data.market.cinemas;
-            });
+        return this.data.market.cinemas;
     }
 
+    /**
+     *
+     * @param id
+     * @returns List of sessions for the provided id
+     */
     getSessionsForCinema(id: string) {
-        return this.$http.get<any>('https://drafthouse.com/s/mother/v1/page/market/main/austin')
-            .then(({data}) => {
-                const sessions = data.data.sessions;
-               return sessions.filter((session: any) => session.cinemaId === id);
-            });
+        return this.data.sessions.filter((session: any) => session.cinemaId === id);
     }
 
+    /**
+     *
+     * @param cinemaId
+     * @returns List of Unique Films showing at provided cinema based on current sessions
+     */
     getUniqueFilmsForCinema(cinemaId: string) {
         let filmMap = new Map<string, any>();
-        this.data.sessions.filter((session: any) => session.cinemaId === cinemaId)
+        this.getSessionsForCinema(cinemaId)
         .forEach(session => {
             const filmMapSession = filmMap.get(session.filmSlug);
             if (!filmMapSession) {
