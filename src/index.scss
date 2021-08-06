@@ -1,7 +1,13 @@
+@import '../src/variables.scss';
+
+
 /**
  * Vendor styles go here
  **/
-
+ @import '~bootstrap/scss/functions';
+ @import '~bootstrap/scss/variables';
+ @import '~bootstrap/scss/mixins/_breakpoints';
+ 
  @import '~bootstrap/dist/css/bootstrap.css'; 
 
 /**
@@ -15,10 +21,13 @@
 }
 body {
     background: #E5E5E5;
-    background-image: url("../src/assets/Hero.png");
-    background-repeat:no-repeat;
-    background-size:contain;
     font-family: Futura PT;
+}
+
+@include media-breakpoint-down(sm) {
+    body {
+        background-color: $silver-screen-gray;
+    }
 }
 
 .btn {

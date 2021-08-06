@@ -56,7 +56,7 @@ export class SelectionContainer implements angular.IComponentOptions {
         cinemas: '<'
     };
     static template = `
-        <div class="film-list-widget d-flex flex-column pt-1 mx-auto">
+        <div class="film-list-widget d-flex flex-column mx-auto">
             <h2 class="mx-auto text-uppercase widget-title ">Find a Movie</h2>
             <div class="theater-select d-none d-md-block">
                 <h3 class="section-label text-uppercase">Select Theater</h3>

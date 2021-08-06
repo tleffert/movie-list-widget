@@ -5,9 +5,8 @@
 
 .film-list-widget {
     width: 752px;
-    position: relative;
     top: 424px;
-    
+    position: relative;
     padding-left: 96px;
     padding-right: 96px;
     
@@ -18,13 +17,16 @@
 
 @include media-breakpoint-down(sm) {
     .film-list-widget {
-       width: 100%;
-       top: 20vh;
-       box-shadow: none;
-       border-radius: 0;
-       padding-left: 64px;
-       padding-right: 64px;
-       background-color: $silver-screen-gray
+        position: absolute;
+        margin-top: 0;
+        width: 100%;
+        top: 20vh;
+        left: 0;
+        box-shadow: none;
+        border-radius: 0;
+        padding-left: 64px;
+        padding-right: 64px;
+        background-color: $silver-screen-gray;
     }
 }
 
