@@ -16,8 +16,8 @@
 body {
     background: #E5E5E5;
     background-image: url("../src/assets/Hero.png");
-    background-repeat: no-repeat;
-    background-size: auto;
+    background-repeat:no-repeat;
+    background-size:contain;
     font-family: Futura PT;
 }
 
@@ -25,6 +25,7 @@ body {
     border: 1px solid #090909;
     box-sizing: border-box;
     border-radius: 4px;
+    background-color: white;
 }
 
 .no-gutter {
